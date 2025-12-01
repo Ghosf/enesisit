@@ -1,728 +1,728 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Departemen IT - PT Enesis</title>
-    <style>
-      /* --- RESET & BASIC --- */
-      * {
-        box-sizing: border-box;
-      }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Departemen IT - PT Enesis</title>
+    <style>
+      /* --- RESET & BASIC --- */
+      * {
+        box-sizing: border-box;
+      }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
-        background-color: #f3f4f6;
-        margin: 0;
-        padding: 0;
-        display: flex; /* Layout Flexbox untuk Sidebar + Konten */
-        min-height: 100vh;
-      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f3f4f6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        min-height: 100vh;
+      }
 
-      /* --- SIDEBAR (NAVIGASI KIRI) --- */
-      aside {
-        width: 260px;
-        background-color: #14532d; /* Hijau Tua Enesis */
-        color: white;
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        height: 100vh;
-        left: 0;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-      }
+      /* --- SIDEBAR (NAVIGASI KIRI) --- */
+      aside {
+        width: 260px;
+        background-color: #14532d;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-      .brand {
-        padding: 20px;
-        text-align: center;
-        background-color: #052e16; /* Hijau lebih gelap untuk logo */
-        border-bottom: 1px solid #166534;
-      }
+      .brand {
+        padding: 20px;
+        text-align: center;
+        background-color: #052e16;
+        border-bottom: 1px solid #166534;
+      }
 
-      .brand img {
-        width: 80px;
-        height: auto;
-        margin-bottom: 10px;
-        background: white;
-        padding: 5px;
-        border-radius: 8px;
-      }
+      .brand img {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+        background: white;
+        padding: 5px;
+        border-radius: 8px;
+      }
 
-      .brand h1 {
-        font-size: 1.2rem;
-        margin: 0;
-        font-weight: 600;
-        color: #ecfdf5;
-      }
+      .brand h1 {
+        font-size: 1.2rem;
+        margin: 0;
+        font-weight: 600;
+        color: #ecfdf5;
+      }
 
-      .brand span {
-        font-size: 0.85rem;
-        color: #86efac;
-        font-weight: normal;
-      }
+      .brand span {
+        font-size: 0.85rem;
+        color: #86efac;
+        font-weight: normal;
+      }
 
-      nav {
-        flex: 1;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
+      nav {
+        flex: 1;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
 
-      nav button {
-        background: transparent;
-        border: none;
-        color: #dcfce7;
-        padding: 15px 25px;
-        text-align: left;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-        border-left: 5px solid transparent;
-        width: 100%;
-      }
+      nav button {
+        background: transparent;
+        border: none;
+        color: #dcfce7;
+        padding: 15px 25px;
+        text-align: left;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        border-left: 5px solid transparent;
+        width: 100%;
+      }
 
-      nav button:hover {
-        background-color: #166534;
-        color: white;
-        padding-left: 30px; /* Efek geser saat hover */
-      }
+      nav button:hover {
+        background-color: #166534;
+        color: white;
+        padding-left: 30px;
+      }
 
-      nav button.active {
-        background-color: #16a34a;
-        color: white;
-        border-left: 5px solid #fff;
-        font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+      nav button.active {
+        background-color: #16a34a;
+        color: white;
+        border-left: 5px solid #fff;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-      footer.sidebar-footer {
-        padding: 20px;
-        font-size: 0.8rem;
-        text-align: center;
-        color: #86efac;
-        border-top: 1px solid #166534;
-      }
+      footer.sidebar-footer {
+        padding: 20px;
+        font-size: 0.8rem;
+        text-align: center;
+        color: #86efac;
+        border-top: 1px solid #166534;
+      }
 
-      /* --- MAIN CONTENT (KANAN) --- */
-      main {
-        flex: 1;
-        margin-left: 260px; /* Memberi ruang untuk sidebar */
-        padding: 0;
-        background-color: #f8fafc;
-      }
+      /* --- MAIN CONTENT (KANAN) --- */
+      main {
+        flex: 1;
+        margin-left: 260px;
+        padding: 0;
+        background-color: #f8fafc;
+      }
 
-      /* Hero Banner di dalam Main Content */
-      .hero-banner {
-        width: 100%;
-        height: 250px;
-        /* PATH DIPERBAIKI */
-        background-image: url("asset/galeri/photo/fotodepan.jpg"); 
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-      }
+      /* Hero Banner di dalam Main Content */
+      .hero-banner {
+        width: 100%;
+        height: 250px;
+        background-image: url("asset/galeri/photo/fotodepan.jpg"); 
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+      }
 
-      .hero-overlay {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.1),
-          rgba(0, 0, 0, 0.7)
-        );
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
+      .hero-overlay {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0.7)
+        );
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
 
-      .hero-text {
-        position: relative;
-        z-index: 2;
-        padding: 30px;
-        color: white;
-      }
+      .hero-text {
+        position: relative;
+        z-index: 2;
+        padding: 30px;
+        color: white;
+      }
 
-      .hero-text h2 {
-        font-size: 2rem;
-        margin: 0 0 5px 0;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      }
+      .hero-text h2 {
+        font-size: 2rem;
+        margin: 0 0 5px 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
 
-      .hero-text p {
-        margin: 0;
-        opacity: 0.9;
-        font-size: 1.1rem;
-      }
+      .hero-text p {
+        margin: 0;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
 
-      /* Content Container */
-      .content-wrapper {
-        padding: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+      /* Content Container */
+      .content-wrapper {
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-      section {
-        background: white;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        display: none; /* Default hidden */
-        animation: fadeIn 0.5s ease-in-out;
-      }
+      section {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        display: none; /* Default hidden */
+        animation: fadeIn 0.5s ease-in-out;
+        margin-bottom: 20px; /* Tambahkan margin bawah */
+      }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-      section:first-of-type {
-        display: block;
-      }
+      section:first-of-type {
+        display: block;
+      }
 
-      h3 {
-        color: #15803d;
-        border-bottom: 2px solid #bbf7d0;
-        padding-bottom: 10px;
-        margin-top: 30px;
-      }
+      h3 {
+        color: #15803d;
+        border-bottom: 2px solid #bbf7d0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+      }
 
-      /* --- COMPONENTS --- */
+      /* --- COMPONENTS --- */
 
-      /* Welcome Box */
-      .welcome-box {
-        background: #dcfce7;
-        color: #14532d;
-        padding: 15px 20px;
-        border-radius: 8px;
-        border-left: 5px solid #16a34a;
-        margin-bottom: 20px;
-      }
+      /* Welcome Box */
+      .welcome-box {
+        background: #dcfce7;
+        color: #14532d;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border-left: 5px solid #16a34a;
+        margin-bottom: 20px;
+      }
 
-      /* Layanan List */
-      .layanan li {
-        margin-bottom: 10px;
-        padding: 15px;
-        background: #f0fdf4;
-        border-radius: 8px;
-        border: 1px solid #bbf7d0;
-        transition: 0.3s;
-        list-style: none;
-      }
-      .layanan li:hover {
-        background: #16a34a;
-        color: white;
-        transform: translateX(5px);
-      }
+      /* Layanan List */
+      .layanan li {
+        margin-bottom: 10px;
+        padding: 15px;
+        background: #f0fdf4;
+        border-radius: 8px;
+        border: 1px solid #bbf7d0;
+        transition: 0.3s;
+        list-style: none;
+      }
+      .layanan li:hover {
+        background: #16a34a;
+        color: white;
+        transform: translateX(5px);
+      }
 
-      /* Struktur Organisasi */
-      .org-diagram {
-        text-align: center;
-        margin-bottom: 2rem;
-        overflow-x: auto;
-      }
-      .org-diagram .level-1 {
-        background: #16a34a;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 50px;
-        display: inline-block;
-        font-weight: bold;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      }
-      .org-diagram .line {
-        width: 2px;
-        height: 30px;
-        background: #cbd5e1;
-        margin: 0 auto;
-      }
-      .org-diagram .level-2 {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-      .org-diagram .level-2 div {
-        background: white;
-        padding: 10px 20px;
-        border-radius: 8px;
-        border: 1px solid #cbd5e1;
-        font-weight: 600;
-        color: #334155;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
+      /* Struktur Organisasi */
+      .org-diagram {
+        text-align: center;
+        margin-bottom: 2rem;
+        overflow-x: auto;
+      }
+      .org-diagram .level-1 {
+        background: #16a34a;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 50px;
+        display: inline-block;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+      .org-diagram .line {
+        width: 2px;
+        height: 30px;
+        background: #cbd5e1;
+        margin: 0 auto;
+      }
+      .org-diagram .level-2 {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .org-diagram .level-2 div {
+        background: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        font-weight: 600;
+        color: #334155;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
 
-      /* Inventaris Grid */
-      .inventaris-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-      }
+      /* Inventaris Grid */
+      .inventaris-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
 
-      .inventaris-box {
-        background: white;
-        border-radius: 12px;
-        padding: 0;
-        border: 1px solid #e2e8f0;
-        overflow: hidden; /* Supaya gambar gak keluar */
-        transition: transform 0.3s ease;
-      }
+      .inventaris-box {
+        background: white;
+        border-radius: 12px;
+        padding: 0;
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
 
-      .inventaris-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
+      .inventaris-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
 
-      .box-content {
-        padding: 20px;
-      }
+      .box-content {
+        padding: 20px;
+      }
 
-      /* Table Styles */
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.95rem;
-      }
-      th {
-        background: #16a34a;
-        color: white;
-        padding: 12px;
-        text-align: left;
-      }
-      td {
-        padding: 12px;
-        border-bottom: 1px solid #e2e8f0;
-      }
-      tr:nth-child(even) {
-        background-color: #f8fafc;
-      }
-      tr:hover {
-        background-color: #f0fdf4;
-      }
+      /* Table Styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      th {
+        background: #16a34a;
+        color: white;
+        padding: 12px;
+        text-align: left;
+      }
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      tr:hover {
+        background-color: #f0fdf4;
+      }
 
-      /* Images in Documentation */
-      #docs .inventaris-box img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-bottom: 3px solid #16a34a;
-      }
+      /* Images in Documentation */
+      #docs .inventaris-box img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 3px solid #16a34a;
+      }
 
-      /* Carousel */
-      .carousel {
-        position: relative;
-        width: 100%;
-        max-width: 800px;
-        margin: 20px auto;
-        overflow: hidden;
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      .carousel-container {
-        display: flex;
-        transition: transform 0.6s ease;
-      }
-      .carousel-container img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-      }
-      .carousel button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.6);
-        color: white;
-        border: none;
-        padding: 15px;
-        cursor: pointer;
-        border-radius: 50%;
-      }
-      .carousel .prev {
-        left: 15px;
-      }
-      .carousel .next {
-        right: 15px;
-      }
+      /* Carousel */
+      .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .carousel-container {
+        display: flex;
+        transition: transform 0.6s ease;
+      }
+      .carousel-container img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
+      .carousel button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+      .carousel .prev {
+        left: 15px;
+      }
+      .carousel .next {
+        right: 15px;
+      }
 
-      /* --- RESPONSIVE MOBILE --- */
-      @media (max-width: 768px) {
-        body {
-          flex-direction: column;
-        }
-        aside {
-          position: relative;
-          width: 100%;
-          height: auto;
-          flex-direction: row;
-          align-items: center;
-          padding: 10px;
-          justify-content: space-between;
-        }
-        .brand {
-          padding: 5px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          background: none;
-          border: none;
-          text-align: left;
-        }
-        .brand img {
-          margin: 0;
-          width: 40px;
-        }
-        .brand h1 {
-          font-size: 1rem;
-        }
-        .brand span {
-          display: none;
-        }
+      /* --- RESPONSIVE MOBILE --- */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+        aside {
+          position: relative;
+          width: 100%;
+          height: auto;
+          flex-direction: row;
+          align-items: center;
+          padding: 10px;
+          justify-content: space-between;
+        }
+        .brand {
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background: none;
+          border: none;
+          text-align: left;
+        }
+        .brand img {
+          margin: 0;
+          width: 40px;
+        }
+        .brand h1 {
+          font-size: 1rem;
+        }
+        .brand span {
+          display: none;
+        }
 
-        nav {
-          flex-direction: row;
-          padding: 0;
-          overflow-x: auto; /* Scroll samping kalo menu banyak */
-        }
-        nav button {
-          padding: 10px;
-          font-size: 0.9rem;
-          white-space: nowrap;
-          width: auto;
-        }
-        footer.sidebar-footer {
-          display: none;
-        }
+        nav {
+          flex-direction: row;
+          padding: 0;
+          overflow-x: auto;
+        }
+        nav button {
+          padding: 10px;
+          font-size: 0.9rem;
+          white-space: nowrap;
+          width: auto;
+        }
+        footer.sidebar-footer {
+          display: none;
+        }
 
-        main {
-          margin-left: 0;
-        }
+        main {
+          margin-left: 0;
+        }
 
-        .hero-banner {
-          height: 180px;
-        }
-      }
-    </style>
-  </head>
+        .hero-banner {
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
 
-  <body>
-    <aside>
-      <div class="brand">
-        <img
-          /* PATH DIPERBAIKI */
-          src="asset/galeri/photo/enesislogo.png"
-          alt="Logo Enesis"
-        />
-        <div>
-          <h1>DEPT. IT</h1>
-          <span>PT Enesis Group</span>
-        </div>
-      </div>
+  <body>
+    <aside>
+      <div class="brand">
+        <img
+          src="asset/galeri/photo/enesislogo.png"
+          alt="Logo Enesis"
+        />
+        <div>
+          <h1>DEPT. IT</h1>
+          <span>PT Enesis Group</span>
+        </div>
+      </div>
 
-      <nav>
-        <button class="active" onclick="showPage('home')">🏠 Beranda</button>
-        <button onclick="showPage('org')">👥 Struktur Organisasi</button>
-        <button onclick="showPage('inv')">📦 Inventaris & Layanan</button>
-        <button onclick="showPage('docs')">📚 Dokumentasi</button>
-      </nav>
+      <nav>
+        <button class="active" onclick="showPage('home')">🏠 Beranda</button>
+        <button onclick="showPage('org')">👥 Struktur Organisasi</button>
+        <button onclick="showPage('inv')">📦 Inventaris & Layanan</button>
+        <button onclick="showPage('docs')">📚 Dokumentasi</button>
+        <button onclick="showPage('diskusi')">💬 Diskusi & Masukan</button>       </nav>
 
-      <footer class="sidebar-footer">
-        <p>&copy; 2024 IT Department<br />Internal Portal</p>
-      </footer>
-    </aside>
+      <footer class="sidebar-footer">
+        <p>&copy; 2024 IT Department<br />Internal Portal</p>
+      </footer>
+    </aside>
 
-    <main>
-      <div class="hero-banner">
-        <div class="hero-overlay"></div>
-        <div class="hero-text">
-          <h2 id="page-title">IT Information Portal</h2>
-          <p>Pusat data, inventaris, dan prosedur kerja Departemen IT</p>
-        </div>
-      </div>
+    <main>
+      <div class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+          <h2 id="page-title">IT Information Portal</h2>
+          <p>Pusat data, inventaris, dan prosedur kerja Departemen IT</p>
+        </div>
+      </div>
 
-      <div class="content-wrapper">
-        <section id="home">
-          <div class="welcome-box">
-            <h3>👋 Selamat Datang, Rekan Enesis!</h3>
-            <p>
-              Situs ini adalah acuan resmi operasional IT. Gunakan menu di
-              sebelah kiri untuk navigasi.
-            </p>
-          </div>
+      <div class="content-wrapper">
+        <section id="home">
+          <div class="welcome-box">
+            <h3>👋 Selamat Datang, Rekan Enesis!</h3>
+            <p>
+              Situs ini adalah acuan resmi operasional IT. Gunakan menu di
+              sebelah kiri untuk navigasi.
+            </p>
+          </div>
 
-          <h3>1. Deskripsi Departemen IT</h3>
-          <p>
-            Departemen IT PT Enesis bertanggung jawab dalam pengelolaan
-            infrastruktur teknologi, pengembangan aplikasi internal, serta
-            memastikan sistem berjalan dengan aman dan efisien untuk mendukung
-            seluruh kegiatan operasional perusahaan.
-          </p>
+          <h3>1. Deskripsi Departemen IT</h3>
+          <p>
+            Departemen IT PT Enesis bertanggung jawab dalam pengelolaan
+            infrastruktur teknologi, pengembangan aplikasi internal, serta
+            memastikan sistem berjalan dengan aman dan efisien untuk mendukung
+            seluruh kegiatan operasional perusahaan.
+          </p>
 
-          <h3>2. Visi & Misi</h3>
-          <p>
-            <strong>Visi:</strong> Menjadi departemen IT yang inovatif dan andal
-            dalam mendukung transformasi digital di PT Enesis.
-          </p>
-          <ul>
-            <li>Menyediakan layanan teknologi yang cepat dan efektif.</li>
-            <li>Menjaga keamanan data dan sistem perusahaan.</li>
-            <li>
-              Mendukung kolaborasi lintas departemen melalui solusi digital.
-            </li>
-          </ul>
+          <h3>2. Visi & Misi</h3>
+          <p>
+            <strong>Visi:</strong> Menjadi departemen IT yang inovatif dan andal
+            dalam mendukung transformasi digital di PT Enesis.
+          </p>
+          <ul>
+            <li>Menyediakan layanan teknologi yang cepat dan efektif.</li>
+            <li>Menjaga keamanan data dan sistem perusahaan.</li>
+            <li>
+              Mendukung kolaborasi lintas departemen melalui solusi digital.
+            </li>
+          </ul>
 
-          <h3>3. Galeri Kegiatan</h3>
-          <div class="carousel">
-            <div class="carousel-container">
-              <img
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/pasien.jpeg"
-                alt="Tim IT"
-              />
-              <img
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/21.jpeg"
-                alt="Server Room"
-              />
-              <img
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/abtu.jpeg"
-                alt="Meeting IT"
-              />
-            </div>
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
-          </div>
-        </section>
+          <h3>3. Galeri Kegiatan</h3>
+          <div class="carousel">
+            <div class="carousel-container">
+              <img
+                src="asset/galeri/photo/pasien.jpeg"
+                alt="Tim IT"
+              />
+              <img
+                src="asset/galeri/photo/21.jpeg"
+                alt="Server Room"
+              />
+              <img
+                src="asset/galeri/photo/abtu.jpeg"
+                alt="Meeting IT"
+              />
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </section>
 
-        <section id="org">
-          <h2>Struktur Organisasi</h2>
-          <p>Bagan alur komando dan tanggung jawab tim IT.</p>
-          <hr
-            style="border: 0; border-top: 1px solid #ddd; margin-bottom: 20px"
-          />
+        <section id="org">
+          <h2>Struktur Organisasi</h2>
+          <p>Bagan alur komando dan tanggung jawab tim IT.</p>
+          <hr
+            style="border: 0; border-top: 1px solid #ddd; margin-bottom: 20px"
+          />
 
-          <div class="org-diagram">
-            <div class="level-1">Dept. Head</div>
-            <div class="line"></div>
-            <div class="level-2">
-              <div>Helpdesk Support</div>
-              <div>Security & SysAdmin</div>
-              <div>Network Infra</div>
-              <div>IT Administration</div>
-            </div>
-          </div>
+          <div class="org-diagram">
+            <div class="level-1">Dept. Head</div>
+            <div class="line"></div>
+            <div class="level-2">
+              <div>Helpdesk Support</div>
+              <div>Security & SysAdmin</div>
+              <div>Network Infra</div>
+              <div>IT Administration</div>
+            </div>
+          </div>
 
-          <ul class="org-list" style="line-height: 1.6">
-            <li>
-              <strong>Dept. Head:</strong> Memimpin strategi IT dan melaporkan
-              ke manajemen.
-            </li>
-            <li>
-              <strong>Helpdesk Support:</strong> Front-line support untuk
-              kendala user harian.
-            </li>
-            <li>
-              <strong>Security & System Admin:</strong> Menjaga server dan
-              keamanan data.
-            </li>
-            <li>
-              <strong>Network & Infrastructure:</strong> Mengelola jaringan
-              (LAN/WAN/Wifi).
-            </li>
-            <li>
-              <strong>Admin:</strong> Mengurus aset dan administrasi departemen.
-            </li>
-          </ul>
-        </section>
+          <ul class="org-list" style="line-height: 1.6">
+            <li>
+              <strong>Dept. Head:</strong> Memimpin strategi IT dan melaporkan
+              ke manajemen.
+            </li>
+            <li>
+              <strong>Helpdesk Support:</strong> Front-line support untuk
+              kendala user harian.
+            </li>
+            <li>
+              <strong>Security & System Admin:</strong> Menjaga server dan
+              keamanan data.
+            </li>
+            <li>
+              <strong>Network & Infrastructure:</strong> Mengelola jaringan
+              (LAN/WAN/Wifi).
+            </li>
+            <li>
+              <strong>Admin:</strong> Mengurus aset dan administrasi departemen.
+            </li>
+          </ul>
+        </section>
 
-        <section id="inv">
-          <h2>Inventaris & Katalog Layanan</h2>
+        <section id="inv">
+          <h2>Inventaris & Katalog Layanan</h2>
 
-          <div class="inventaris-container">
-            <div class="inventaris-box" style="grid-column: span 1 / -1">
-              <div class="box-content">
-                <h3>📦 Aset Perangkat Keras</h3>
-                <table>
-                  <tr>
-                    <th>Perangkat</th>
-                    <th>Jumlah</th>
-                    <th>Lokasi / Fungsi</th>
-                  </tr>
-                  <tr>
-                    <td>PC Box</td>
-                    <td>47 Unit</td>
-                    <td>Kantor Pusat (Operational)</td>
-                  </tr>
-                  <tr>
-                    <td>PC All-in-One</td>
-                    <td>42 Unit</td>
-                    <td>Kantor Pusat (Staff/Admin)</td>
-                  </tr>
-                  <tr>
-                    <td>Laptop</td>
-                    <td>25 Unit</td>
-                    <td>Manager & Mobile Staff</td>
-                  </tr>
-                  <tr>
-                    <td>Server Rack</td>
-                    <td>5 Unit</td>
-                    <td>Server Room Lt. 2</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+          <div class="inventaris-container">
+            <div class="inventaris-box" style="grid-column: span 1 / -1">
+              <div class="box-content">
+                <h3>📦 Aset Perangkat Keras</h3>
+                <table>
+                  <tr>
+                    <th>Perangkat</th>
+                    <th>Jumlah</th>
+                    <th>Lokasi / Fungsi</th>
+                  </tr>
+                  <tr>
+                    <td>PC Box</td>
+                    <td>47 Unit</td>
+                    <td>Kantor Pusat (Operational)</td>
+                  </tr>
+                  <tr>
+                    <td>PC All-in-One</td>
+                    <td>42 Unit</td>
+                    <td>Kantor Pusat (Staff/Admin)</td>
+                  </tr>
+                  <tr>
+                    <td>Laptop</td>
+                    <td>25 Unit</td>
+                    <td>Manager & Mobile Staff</td>
+                  </tr>
+                  <tr>
+                    <td>Server Rack</td>
+                    <td>5 Unit</td>
+                    <td>Server Room Lt. 2</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
 
-            <div class="inventaris-box">
-              <div class="box-content">
-                <h3>🛠️ Layanan Support</h3>
-                <ul class="layanan-list">
-                  <li><b>Troubleshooting:</b> Perbaikan PC/Laptop/Printer.</li>
-                  <li><b>Instalasi Software:</b> Office, ERP, Antivirus.</li>
-                  <li><b>Jaringan:</b> Perbaikan Wifi dan LAN.</li>
-                </ul>
-              </div>
-            </div>
+            <div class="inventaris-box">
+              <div class="box-content">
+                <h3>🛠️ Layanan Support</h3>
+                <ul class="layanan-list">
+                  <li><b>Troubleshooting:</b> Perbaikan PC/Laptop/Printer.</li>
+                  <li><b>Instalasi Software:</b> Office, ERP, Antivirus.</li>
+                  <li><b>Jaringan:</b> Perbaikan Wifi dan LAN.</li>
+                </ul>
+              </div>
+            </div>
 
-            <div class="inventaris-box">
-              <div class="box-content">
-                <h3>💻 Layanan Sistem</h3>
-                <ul class="layanan-list">
-                  <li><b>Akun User:</b> Pembuatan Email & Akses ERP.</li>
-                  <li><b>Backup Data:</b> Restore file yang hilang.</li>
-                  <li><b>Development:</b> Request fitur aplikasi internal.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+            <div class="inventaris-box">
+              <div class="box-content">
+                <h3>💻 Layanan Sistem</h3>
+                <ul class="layanan-list">
+                  <li><b>Akun User:</b> Pembuatan Email & Akses ERP.</li>
+                  <li><b>Backup Data:</b> Restore file yang hilang.</li>
+                  <li><b>Development:</b> Request fitur aplikasi internal.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <section id="docs">
-          <h2>SOP & Dokumentasi</h2>
+        <section id="docs">
+          <h2>SOP & Dokumentasi</h2>
 
-          <div class="inventaris-container">
-            <div class="inventaris-box">
-              
-              <img
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/servis.jpg"
-                alt="Penanganan Keluhan"
-              />
-              <div class="box-content">
-                <h3>📋 SOP Helpdesk</h3>
-                <p>Prosedur pelaporan tiket gangguan hingga penyelesaian.</p>
-              </div>
-            </div>
+          <div class="inventaris-container">
+            <div class="inventaris-box">
+              
+              <img
+                src="asset/galeri/photo/servis.jpg"
+                alt="Penanganan Keluhan"
+              />
+              <div class="box-content">
+                <h3>📋 SOP Helpdesk</h3>
+                <p>Prosedur pelaporan tiket gangguan hingga penyelesaian.</p>
+              </div>
+            </div>
 
-            <div class="inventaris-box">
-              <img
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/server.jpeg"
-                alt="Server Maintenance"
-              />
-              <div class="box-content">
-                <h3>🧰 SOP Maintenance Server</h3>
-                <p>Jadwal dan checklist perawatan ruang server & jaringan.</p>
-              </div>
-            </div>
+            <div class="inventaris-box">
+              <img
+                src="asset/galeri/photo/server.jpeg"
+                alt="Server Maintenance"
+              />
+              <div class="box-content">
+                <h3>🧰 SOP Maintenance Server</h3>
+                <p>Jadwal dan checklist perawatan ruang server & jaringan.</p>
+              </div>
+            </div>
 
-            <div class="inventaris-box">
-              <img
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/inulpc.jpeg"
-                alt="Install Ulang"
-              />
-              <div class="box-content">
-                <h3>💾 SOP Instalasi & Backup</h3>
-                <p>
-                  Standarisasi software laptop baru dan prosedur backup data.
-                </p>
-              </div>
-            </div>
+            <div class="inventaris-box">
+              <img
+                src="asset/galeri/photo/inulpc.jpeg"
+                alt="Install Ulang"
+              />
+              <div class="box-content">
+                <h3>💾 SOP Instalasi & Backup</h3>
+                <p>
+                  Standarisasi software laptop baru dan prosedur backup data.
+                </p>
+              </div>
+            </div>
 
-            <div class="inventaris-box">
-              <img 
-                /* PATH DIPERBAIKI */
-                src="asset/galeri/photo/cctv.png" 
-                alt="CCTV" 
-              />
-              <div class="box-content">
-                <h3>🎥 SOP Keamanan Fisik</h3>
-                <p>Prosedur pengecekan CCTV dan Access Door.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-        <div style="margin-top: 50px; border-top: 2px solid #e2e8f0; padding-top: 20px;">
-            <h3>💬 Diskusi & Masukan</h3>
-            <p style="margin-bottom: 20px;">Silakan tinggalkan komentar atau laporan kendala di bawah ini. (Login GitHub diperlukan)</p>
-              <script src="https://giscus.app/client.js"
-                data-repo="Ghosf/enesisit"
-                data-repo-id="R_kgDOQSbRpQ"
-                data-category="General"
-                data-category-id="DIC_kwDOQSbRpc4CzQSm"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="en"
-                crossorigin="anonymous"
-                async>
-                </script>
-              </div>
-    </main>
+            <div class="inventaris-box">
+              <img 
+                src="asset/galeri/photo/cctv.png" 
+                alt="CCTV" 
+              />
+              <div class="box-content">
+                <h3>🎥 SOP Keamanan Fisik</h3>
+                <p>Prosedur pengecekan CCTV dan Access Door.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+                <section id="diskusi">
+          <h2>💬 Diskusi & Masukan</h2>
+          <p style="margin-bottom: 20px;">Silakan tinggalkan komentar atau laporan kendala di bawah ini. (Login GitHub diperlukan)</p>
+            <div class="giscus-container">
+              <script src="https://giscus.app/client.js"
+                data-repo="Ghosf/enesisit"
+                data-repo-id="R_kgDOQSbRpQ"
+                data-category="General"
+                data-category-id="DIC_kwDOQSbRpc4CzQSm"
+                **data-mapping="specific"**
+                **data-term="IT-Portal-Diskusi-Umum"**
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="id"
+                crossorigin="anonymous"
+                async>
+                </script>
+              </div>
+        </section>
+      </div>
+    </main>
 
-    <script>
-      function showPage(page) {
-        // Hide all sections
-        document.querySelectorAll("section").forEach((sec) => {
-          sec.style.display = "none";
-        });
+    <script>
+      function showPage(page) {
+        // Hide all sections
+        document.querySelectorAll("section").forEach((sec) => {
+          sec.style.display = "none";
+        });
 
-        // Show selected section
-        document.getElementById(page).style.display = "block";
+        // Show selected section
+        document.getElementById(page).style.display = "block";
 
-        // Update active button
-        document.querySelectorAll("nav button").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        // Karena event target bisa span atau icon di dalam button, pastikan ambil buttonnya
-        const activeBtn = event.target.closest("button") || event.target;
-        activeBtn.classList.add("active");
+        // Update active button
+        document.querySelectorAll("nav button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        // Karena event target bisa span atau icon di dalam button, pastikan ambil buttonnya
+        const activeBtn = event.target.closest("button") || event.target;
+        activeBtn.classList.add("active");
 
-        // Ganti judul di Banner sesuai menu (Opsional, pemanis aja)
-        const titles = {
-          home: "Dashboard Departemen IT",
-          org: "Struktur Organisasi",
-          inv: "Data Inventaris & Layanan",
-          docs: "Dokumentasi & SOP",
-        };
-        document.getElementById("page-title").innerText = titles[page];
-      }
+        // Ganti judul di Banner sesuai menu
+        const titles = {
+          home: "Dashboard Departemen IT",
+          org: "Struktur Organisasi",
+          inv: "Data Inventaris & Layanan",
+          docs: "Dokumentasi & SOP",
+          **diskusi: "Diskusi dan Umpan Balik Tim IT"** // Tambahkan judul baru
+        };
+        document.getElementById("page-title").innerText = titles[page];
+      }
 
-      let slideIndex = 0;
-      function moveSlide(n) {
-        const container = document.querySelector(".carousel-container");
-        const slides = document.querySelectorAll(".carousel-container img");
-        slideIndex = (slideIndex + n + slides.length) % slides.length;
-        container.style.transform = `translateX(-${slideIndex * 100}%)`;
-      }
-    </script>
-  </body>
+      let slideIndex = 0;
+      function moveSlide(n) {
+        const container = document.querySelector(".carousel-container");
+        const slides = document.querySelectorAll(".carousel-container img");
+        slideIndex = (slideIndex + n + slides.length) % slides.length;
+        container.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+      
+      // INISIALISASI: Panggil showPage('home') saat halaman pertama kali dimuat
+      window.onload = () => {
+          showPage('home');
+      };
+    </script>
+  </body>
 </html>
-
-
